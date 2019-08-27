@@ -1,0 +1,116 @@
+---
+title: "STA521 HW1"
+author: '[Your Name Here and netid]'
+date: "Due Wednesday September 4, 2019"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ISLR)
+# add other libraries here
+```
+
+This exercise involves the Auto data set from ISLR.  Load the data and answer the following questions adding your code in the code chunks. Please submit a pdf version to Sakai.  For full credit, you should push your final Rmd file to your github repo on the STA521-F19 organization site by the deadline  (the version that is submitted on Sakai will be graded)
+
+```{r data, echo=F}
+data(Auto)
+```
+
+## Exploratory Data Analysis
+1. Create a summary of the data.  How many variables have missing data?
+
+```{r}
+
+```
+
+
+2.  Which of the predictors are quantitative, and which are qualitative?
+```{r}
+
+```
+
+3. What is the range of each quantitative predictor? You can answer this using the `range()` function.   Create a table with variable name, min, max with one row per variable.   `kable` from the package `knitr` can display tables nicely.
+
+```{r}
+
+```
+
+4. What is the mean and standard deviation of each quantitative predictor?  _Format nicely in a table as above_
+
+```{r}
+
+```
+
+
+5. Investigate the predictors graphically, using scatterplot matrices  (`ggpairs`) and other tools of your choice. Create some plots
+highlighting the relationships among the predictors. Comment
+on your findings.  _Try adding a caption to your figure_
+```{r}
+
+```
+
+6. Suppose that we wish to predict gas mileage (mpg) on the basis of the other variables using regression. Do your plots suggest that any of the other variables might be useful in predicting mpg using linear regression? Justify your answer.
+
+```{r}
+
+```
+
+
+## Simple Linear Regression
+
+7.  Use the `lm()` function to perform a simple linear 
+regression with `mpg` as the response and `horsepower` as the
+predictor. Use the `summary()` function to print the results.
+Comment on the output.
+For example:
+    (a) Is there a relationship between the predictor and the response?
+    (b) How strong is the relationship between the predictor and
+the response?
+    (c) Is the relationship between the predictor and the response
+positive or negative?
+    (d)  Provide a brief interpretation of the parameters that would suitable for discussing with a car dealer, who has little statistical background.
+    (e) What is the predicted mpg associated with a horsepower of
+98? What are the associated 95% confidence and prediction
+intervals?   (see `help(predict)`) Provide interpretations of these for the car dealer.
+
+8. Plot the response and the predictor using `ggplot`.  Add to the plot a line showing the least squares regression line. 
+```{r}
+
+```
+
+9. Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the model regarding assumptions for using a simple linear regression.  
+
+```{r}
+
+```
+
+## Theory
+
+
+
+10. Show that the  regression function $E(Y \mid x) = f(x)$ is the optimal 
+optimal predictor of $Y$ given $X = x$ using squared error loss:  that is $f(x)$
+minimizes $E[(Y - g(x))^2 \mid X =x]$ over all functions $g(x)$ at all points $X=x$.   _Hint:  there are at least two ways to do this.   Differentiation (so think about how to justify) - or - add and subtract the proposed optimal predictor and who that it must minimize the function._
+
+11. (adopted from ELS Ex 2.6 ) Suppose that we have a sample of $N$ pairs $x_i, y_i$ drwan iid from the distribution characterized as follows 
+$$ x_i \sim h(x), \text{ the design distribution}$$
+$$ \epsilon_i \sim g(y), \text{ with mean 0 and variance } \sigma^2 \text{ and are independent of the } x_i $$
+$$Y_i = f(x_i) + \epsilon$$
+  (a) What is the conditional expectation of $Y$ given that $X = x_o$?  ($E_{Y \mid X}[Y]$)
+  (b) What is the conditional variance of $Y$ given that $X = x_o$? ($\text{Var}_{Y \mid X}[Y]$)
+  (c) show  that for any estimator $\hat{f}(x)$ that the conditional (given X) (expected)  Mean Squared Error can be decomposed as 
+$$E_{Y \mid X}[(Y - \hat{f}(x_o))^2] = \underbrace{ \text{Var}_{Y \mid X}[\hat{f}(x_o)]}_{\textit{Variance of estimator}} +
+\underbrace{(f(x) - E_{Y \mid X}[\hat{f}(x_o)])^2}_{\textit{Squared Bias}} + \underbrace{\textsf{Var}(\epsilon)}_{\textit{Irreducible}}
+$$
+ _Hint:  try the add zero trick of adding and subtracting expected values_
+  (d) Explain why even if $N$ goes to infinity the above can never go to zero.
+e.g. even if we can learn $f(x)$ perfectly that the error in prediction will not vanish.   
+  (e) Decompose the unconditional mean squared error
+$$E_{Y, X}(f(x_o) - \hat{f}(x_o))^2$$
+into a squared bias and a variance component. (See ELS 2.6(c))
+  (f) Establish a relationship between the squared biases and variance in the above Mean squared errors.
