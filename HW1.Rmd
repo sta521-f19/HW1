@@ -1,11 +1,8 @@
 ---
 title: "STA521 HW1"
 author: '[Your Name Here and netid]'
-date: "Due Wednesday September 4, 2019"
+date: "Due Wednesday September 6, 2019"
 output:
-  html_document:
-    df_print: paged
-  html_notebook: default
   pdf_document: default
 ---
 
