@@ -94,7 +94,7 @@ intervals?   (see `help(predict)`) Provide interpretations of these for the car 
 optimal predictor of $Y$ given $X = x$ using squared error loss:  that is $f(x)$
 minimizes $E[(Y - g(x))^2 \mid X =x]$ over all functions $g(x)$ at all points $X=x$.   _Hint:  there are at least two ways to do this.   Differentiation (so think about how to justify) - or - add and subtract the proposed optimal predictor and who that it must minimize the function._
 
-11. (adopted from ELS Ex 2.6 ) Suppose that we have a sample of $N$ pairs $x_i, y_i$ drwan iid from the distribution characterized as follows 
+11. (adopted from ELS Ex 2.7 ) Suppose that we have a sample of $N$ pairs $x_i, y_i$ drwan iid from the distribution characterized as follows 
 $$ x_i \sim h(x), \text{ the design distribution}$$
 $$ \epsilon_i \sim g(y), \text{ with mean 0 and variance } \sigma^2 \text{ and are independent of the } x_i $$
 $$Y_i = f(x_i) + \epsilon$$
@@ -109,5 +109,5 @@ $$
 e.g. even if we can learn $f(x)$ perfectly that the error in prediction will not vanish.   
   (e) Decompose the unconditional mean squared error
 $$E_{Y, X}(f(x_o) - \hat{f}(x_o))^2$$
-into a squared bias and a variance component. (See ELS 2.6(c))
+into a squared bias and a variance component. (See ELS 2.7(c))
   (f) Establish a relationship between the squared biases and variance in the above Mean squared errors.
